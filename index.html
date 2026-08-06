@@ -1,0 +1,832 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Happy National Girlfriend Day ❤️</title>
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    width:100%;
+    min-height:100vh;
+    overflow-x:hidden;
+    overflow-y:auto;
+    background:
+        radial-gradient(circle at center, #35152d 0%, #120914 45%, #050307 100%);
+    font-family:Arial, sans-serif;
+    color:white;
+}
+
+/* Falling Petals */
+
+#petals{
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    pointer-events:none;
+    overflow:hidden;
+    z-index:1;
+}
+
+.petal{
+    position:absolute;
+    top:-40px;
+    font-size:22px;
+    opacity:.8;
+    animation:fall linear forwards;
+}
+
+@keyframes fall{
+
+    0%{
+        transform:translateY(-50px) rotate(0deg);
+        opacity:0;
+    }
+
+    10%{
+        opacity:1;
+    }
+
+    100%{
+        transform:translateY(110vh) rotate(360deg);
+        opacity:0;
+    }
+
+}
+/* FLOWER SCENE */
+
+#flowerScene{
+    position:relative;
+    width:100%;
+    min-height:100vh;
+    z-index:4;
+
+    display:none;
+
+    flex-direction:column;
+    justify-content:flex-start;
+    align-items:center;
+
+    padding-top:8vh;
+    padding-bottom:40px;
+}
+
+#plant{
+    position:relative;
+    width:220px;
+    height:450px;
+    flex-shrink:0;
+}
+/* Stem */
+
+#stem{
+    position:absolute;
+    bottom:0;
+    left:50%;
+    width:8px;
+    height:0;
+    transform:translateX(-50%);
+    border-radius:20px;
+    background:linear-gradient(to right,#315c36,#78b85c);
+    box-shadow:0 0 12px rgba(100,200,100,.3);
+
+    transition:height 4s ease;
+}
+
+/* Leaves */
+
+.leaf{
+    position:absolute;
+    width:70px;
+    height:35px;
+    background:linear-gradient(135deg,#7fcf6b,#285d36);
+    opacity:0;
+    box-shadow:0 0 12px rgba(100,220,120,.3);
+}
+
+.leaf-left{
+    left:45px;
+    bottom:180px;
+    border-radius:100% 0 100% 0;
+    transform:rotate(-25deg) scale(0);
+    transform-origin:right center;
+}
+
+.leaf-right{
+    right:45px;
+    bottom:240px;
+    border-radius:0 100% 0 100%;
+    transform:rotate(25deg) scale(0);
+    transform-origin:left center;
+}
+
+/* Grow animations */
+
+.stem-grow{
+    height:330px !important;
+}
+
+.leaf-left-grow{
+    opacity:1;
+    animation:leafLeftGrow 1.5s ease forwards;
+}
+
+.leaf-right-grow{
+    opacity:1;
+    animation:leafRightGrow 1.5s ease forwards;
+}
+
+@keyframes leafLeftGrow{
+
+    from{
+        transform:rotate(-25deg) scale(0);
+    }
+
+    to{
+        transform:rotate(-25deg) scale(1);
+    }
+
+}
+
+@keyframes leafRightGrow{
+
+    from{
+        transform:rotate(25deg) scale(0);
+    }
+
+    to{
+        transform:rotate(25deg) scale(1);
+    }
+
+}
+#intro{
+    position:relative;
+    z-index:5;
+    width:100%;
+    min-height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    text-align:center;
+    padding:25px;
+}
+
+.intro-content{
+    max-width:650px;
+    animation:introAppear 2s ease forwards;
+}
+
+.small-text{
+    font-size:18px;
+    letter-spacing:3px;
+    margin-bottom:20px;
+    opacity:.8;
+}
+
+.intro-content h1{
+    font-size:clamp(38px,8vw,75px);
+    line-height:1.1;
+    margin-bottom:25px;
+    text-shadow:
+        0 0 10px rgba(255,150,210,.5),
+        0 0 30px rgba(255,100,180,.3);
+}
+
+.sub-text{
+    font-size:19px;
+    line-height:1.6;
+    margin-bottom:35px;
+    opacity:.85;
+}
+
+#startFlower{
+    padding:16px 35px;
+    border:none;
+    border-radius:50px;
+    font-size:18px;
+    color:white;
+    background:linear-gradient(135deg,#ff4f9a,#d82f78);
+    box-shadow:
+        0 0 15px rgba(255,80,160,.5),
+        0 0 35px rgba(255,80,160,.2);
+    cursor:pointer;
+    transition:.3s;
+}
+
+#startFlower:hover{
+    transform:scale(1.08);
+    box-shadow:
+        0 0 20px rgba(255,100,180,.8),
+        0 0 50px rgba(255,100,180,.4);
+}
+
+@keyframes introAppear{
+
+    from{
+        opacity:0;
+        transform:translateY(30px);
+    }
+
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+
+}
+/* FLOWER BUD */
+
+#flowerBud{
+    position:absolute;
+    left:50%;
+    bottom:325px;
+
+    width:80px;
+    height:90px;
+
+    transform:translateX(-50%) scale(0);
+    opacity:0;
+
+    transform-origin:bottom center;
+
+    transition:
+        transform 1.5s ease,
+        opacity 1s ease;
+
+    z-index:5;
+}
+
+.bud-show{
+    opacity:1 !important;
+    transform:translateX(-50%) scale(1) !important;
+}
+
+.bud-petal{
+    position:absolute;
+
+    width:45px;
+    height:65px;
+
+    background:linear-gradient(
+        135deg,
+        #ff6fae,
+        #d92f75
+    );
+
+    border-radius:50% 50% 45% 45%;
+
+    box-shadow:
+        0 0 15px rgba(255,100,180,.5);
+}
+
+.bud-petal-1{
+    left:18px;
+    top:10px;
+    transform:rotate(-15deg);
+}
+
+.bud-petal-2{
+    left:5px;
+    top:20px;
+    transform:rotate(-35deg);
+}
+
+.bud-petal-3{
+    right:5px;
+    top:20px;
+    transform:rotate(35deg);
+}
+
+.bud-center{
+    position:absolute;
+
+    width:25px;
+    height:25px;
+
+    left:27px;
+    top:35px;
+
+    border-radius:50%;
+
+    background:#ffd45c;
+
+    box-shadow:
+        0 0 15px #ffd45c;
+}
+/* FULL FLOWER BLOOM */
+
+.bloom .bud-petal-1{
+    animation:bloomPetal1 1.2s ease forwards;
+}
+
+.bloom .bud-petal-2{
+    animation:bloomPetal2 1.2s ease forwards;
+}
+
+.bloom .bud-petal-3{
+    animation:bloomPetal3 1.2s ease forwards;
+}
+.bloom .bud-petal-4{
+    animation:bloomPetal4 1.2s ease forwards;
+}
+
+.bloom .bud-petal-5{
+    animation:bloomPetal5 1.2s ease forwards;
+}
+
+.bloom .bud-petal-6{
+    animation:bloomPetal6 1.2s ease forwards;
+}
+.bloom .bud-center{
+    animation:centerGlow 1.5s ease forwards;
+}
+
+@keyframes bloomPetal1{
+
+    0%{
+        transform:rotate(-15deg) scale(1);
+    }
+
+    100%{
+        transform:rotate(-45deg) translate(-25px,-10px) scale(1.25);
+    }
+
+}
+
+@keyframes bloomPetal2{
+
+    0%{
+        transform:rotate(-35deg) scale(1);
+    }
+
+    100%{
+        transform:rotate(-80deg) translate(-20px,-5px) scale(1.25);
+    }
+
+}
+
+@keyframes bloomPetal3{
+
+    0%{
+        transform:rotate(35deg) scale(1);
+    }
+
+    100%{
+        transform:rotate(80deg) translate(20px,-5px) scale(1.25);
+    }
+
+}
+
+@keyframes centerGlow{
+
+    0%{
+        transform:scale(1);
+    }
+
+    100%{
+        transform:scale(1.5);
+        box-shadow:
+            0 0 15px #ffd45c,
+            0 0 35px #ffb52e;
+    }
+
+}
+.bud-petal-4{
+    left:18px;
+    top:5px;
+    transform:rotate(0deg);
+}
+
+.bud-petal-5{
+    left:0;
+    top:30px;
+    transform:rotate(-60deg);
+}
+
+.bud-petal-6{
+    right:0;
+    top:30px;
+    transform:rotate(60deg);
+}
+@keyframes bloomPetal4{
+
+    0%{
+        transform:rotate(0deg) scale(1);
+    }
+
+    100%{
+        transform:rotate(0deg) translateY(-35px) scale(1.25);
+    }
+
+}
+
+@keyframes bloomPetal5{
+
+    0%{
+        transform:rotate(-60deg) scale(1);
+    }
+
+    100%{
+        transform:rotate(-65deg) translate(-15px,5px) scale(1.25);
+    }
+
+}
+
+@keyframes bloomPetal6{
+
+    0%{
+        transform:rotate(60deg) scale(1);
+    }
+
+    100%{
+        transform:rotate(65deg) translate(15px,5px) scale(1.25);
+    }
+
+}
+/* FINAL FLOWER GLOW + SWAY */
+
+#flowerBud.bloom{
+    animation:flowerSway 4s ease-in-out infinite;
+}
+
+#flowerBud.bloom .bud-petal{
+    box-shadow:
+        0 0 15px rgba(255,100,180,.6),
+        0 0 35px rgba(255,80,170,.3);
+}
+
+#flowerBud.bloom .bud-center{
+    box-shadow:
+        0 0 15px #ffd45c,
+        0 0 30px #ffd45c,
+        0 0 50px rgba(255,190,50,.5);
+}
+
+@keyframes flowerSway{
+
+    0%{
+        transform:translateX(-50%) rotate(-2deg);
+    }
+
+    50%{
+        transform:translateX(-50%) rotate(2deg);
+    }
+
+    100%{
+        transform:translateX(-50%) rotate(-2deg);
+    }
+
+}
+#finalMessage{
+    position:relative;
+    width:92%;
+    max-width:900px;
+    margin-top:25px;
+
+    padding:30px;
+
+    background:rgba(255,255,255,0.08);
+    backdrop-filter:blur(15px);
+
+    border:1px solid rgba(255,255,255,0.15);
+    border-radius:25px;
+
+    text-align:left;
+
+    opacity:0;
+    transform:translateY(30px);
+
+    z-index:20;
+
+    transition:opacity 2s ease, transform 2s ease;
+
+    pointer-events:none;
+
+    box-shadow:0 0 30px rgba(255,120,180,.25);
+}
+
+#finalMessage.show{
+    opacity:1;
+    transform:translateY(0);
+}
+
+#finalMessage h1{
+    font-size:clamp(25px,6vw,45px);
+    line-height:1.2;
+    margin-bottom:15px;
+
+    text-shadow:
+        0 0 10px #ff9ecf,
+        0 0 25px #ff4f9a;
+}
+
+#finalMessage h2{
+    font-size:clamp(17px,4vw,25px);
+    margin-bottom:20px;
+    color:#ffd6ec;
+}
+
+#finalMessage p{
+    font-size:18px;
+    line-height:1.7;
+    color:#fff0f7;
+}
+
+.signature{
+    margin-top:20px;
+    font-size:20px;
+    font-weight:bold;
+
+    color:white;
+
+    text-shadow:
+        0 0 10px pink,
+        0 0 20px rgba(255,100,180,.5);
+}
+    /* 📱 MOBILE FLOWER FIX */
+
+@media (max-width:600px){
+
+    #flowerScene{
+        min-height:100vh;
+        height:auto;
+
+        padding-top:40px;
+        padding-bottom:40px;
+
+        justify-content:flex-start;
+        overflow-y:auto;
+    }
+
+    #plant{
+        width:180px;
+        height:360px;
+    }
+
+    #stem{
+        width:6px;
+    }
+
+    .stem-grow{
+        height:260px !important;
+    }
+
+    .leaf{
+        width:55px;
+        height:28px;
+    }
+
+    .leaf-left{
+        left:25px;
+        bottom:120px;
+    }
+
+    .leaf-right{
+        right:25px;
+        bottom:165px;
+    }
+
+    #flowerBud{
+        bottom:255px;
+        transform:translateX(-50%) scale(0);
+    }
+
+    .bud-show{
+        transform:translateX(-50%) scale(.75) !important;
+    }
+
+    #flowerBud.bloom{
+        animation:flowerSwayMobile 4s ease-in-out infinite;
+    }
+
+    #finalMessage{
+        width:92%;
+        margin-top:-5px;
+        padding:0 5px;
+    }
+
+    #finalMessage h1{
+        font-size:28px;
+        line-height:1.25;
+    }
+
+    #finalMessage h2{
+        font-size:18px;
+        line-height:1.4;
+    }
+
+    #finalMessage p{
+        font-size:16px;
+        line-height:1.6;
+    }
+
+    .signature{
+        font-size:18px;
+        margin-top:15px;
+    }
+
+}
+
+@keyframes flowerSwayMobile{
+
+    0%{
+        transform:translateX(-50%) rotate(-2deg);
+    }
+
+    50%{
+        transform:translateX(-50%) rotate(2deg);
+    }
+
+    100%{
+        transform:translateX(-50%) rotate(-2deg);
+    }
+
+}
+</style>
+</head>
+
+<body>
+<div id="petals"></div>
+<div id="intro">
+
+    <div class="intro-content">
+
+        <p class="small-text">
+            For Someone Very Special ❤️
+        </p>
+
+        <h1>
+            I Made Something Special<br>
+            For You
+        </h1>
+
+        <p class="sub-text">
+            Baby, this little surprise is just for you... 🌸
+        </p>
+
+        <button id="startFlower">
+            🌱 Click Me
+        </button>
+
+    </div>
+
+</div>
+<div id="flowerScene">
+
+    <div id="plant">
+
+        <div id="stem"></div>
+
+        <div class="leaf leaf-left"></div>
+        <div class="leaf leaf-right"></div>
+<div id="flowerBud">
+
+    <div class="bud-petal bud-petal-1"></div>
+    <div class="bud-petal bud-petal-2"></div>
+    <div class="bud-petal bud-petal-3"></div>
+    <div class="bud-petal bud-petal-4"></div>
+    <div class="bud-petal bud-petal-5"></div>
+    <div class="bud-petal bud-petal-6"></div>
+
+    <div class="bud-center"></div>
+<div id="finalMessage">
+
+    <div id="finalMessage">
+
+    <h1>For My Beautiful Snoor ❤️</h1>
+
+    <h2>You Mean The World To Me 🌸</h2>
+
+    <p>
+        Baby,
+        <br><br>
+
+        I just wanted to remind you how special you are to me.
+        Sometimes I don't express it enough, but I truly appreciate everything about you.
+        <br><br>
+
+        Your smile makes my day better, your care makes me feel loved, and your presence makes my life more beautiful.
+        Thank you for always being you.
+        <br><br>
+
+        If I ever made you feel bad, I'm really sorry. It was never my intention.
+        Seeing you happy is one of the most important things to me.
+        <br><br>
+
+        I hope this little flower reminds you how beautiful, kind, and precious you are.
+        And I hope it brings a smile to your face. 🌸
+        <br><br>
+
+        I love you so much, Baby. ❤️
+    </p>
+
+    <div class="signature">
+        — Forever Yours,<br>
+        Jagat ❤️
+    </div>
+
+</div>
+</div>
+    </div>
+
+</div>
+<script>
+
+const petals = document.getElementById("petals");
+
+function createPetal(){
+
+    const petal = document.createElement("div");
+
+    petal.className = "petal";
+
+    petal.innerHTML = "🌸";
+
+    petal.style.left = Math.random() * 100 + "vw";
+
+    petal.style.fontSize =
+        (15 + Math.random() * 15) + "px";
+
+    petal.style.animationDuration =
+        (5 + Math.random() * 5) + "s";
+
+    petals.appendChild(petal);
+
+    setTimeout(function(){
+        petal.remove();
+    },10000);
+}
+
+setInterval(createPetal,500);
+const startFlower = document.getElementById("startFlower");
+
+const intro = document.getElementById("intro");
+const flowerScene = document.getElementById("flowerScene");
+
+const stem = document.getElementById("stem");
+
+const leftLeaf = document.querySelector(".leaf-left");
+const rightLeaf = document.querySelector(".leaf-right");
+
+
+startFlower.onclick = function(){
+
+    intro.style.display = "none";
+
+    flowerScene.style.display = "flex";
+
+    setTimeout(function(){
+
+        stem.classList.add("stem-grow");
+
+    },500);
+
+
+    setTimeout(function(){
+
+        leftLeaf.classList.add("leaf-left-grow");
+
+    },2500);
+
+
+    setTimeout(function(){
+
+        rightLeaf.classList.add("leaf-right-grow");
+
+    },3200);
+setTimeout(function(){
+
+    document.getElementById("flowerBud")
+        .classList.add("bud-show");
+
+},4300);
+setTimeout(function(){
+
+    document.getElementById("flowerBud")
+        .classList.add("bloom");
+
+},6000);
+setTimeout(function(){
+
+    document.getElementById("finalMessage")
+        .classList.add("show");
+
+},8500);
+};
+</script>
+
+</body>
+
+</html>
